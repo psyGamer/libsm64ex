@@ -64,6 +64,11 @@ uint8_t *ci2raw(const uint8_t *rawci, const uint8_t *palette, int width, int hei
 // convert from raw (RGBA16 or IA16) format to CI + palette
 int raw2ci(uint8_t *rawci, palette_t *pal, const uint8_t *raw, int raw_len, int ci_depth);
 
+//---------------------------------------------------------
+// intermediate IA -> intermediate RGBA
+//---------------------------------------------------------
+
+rgba *ia2rgba(const ia *ia_img, int width, int height);
 
 //---------------------------------------------------------
 // intermediate RGBA/IA -> PNG

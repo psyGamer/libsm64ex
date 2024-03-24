@@ -139,6 +139,10 @@ SM64_LIB_FN void sm64_global_terminate( void )
     memory_terminate();
 }
 
+SM64_LIB_FN void sm64_load_menu_texture_atlas( const uint8_t *rom, uint8_t *outTexture ) {
+    load_menu_textures_from_rom( rom, outTexture );
+}
+
 SM64_LIB_FN void sm64_audio_init( const uint8_t *rom ) {
     load_audio_banks( rom );
 }

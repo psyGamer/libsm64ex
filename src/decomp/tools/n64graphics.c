@@ -317,6 +317,31 @@ int i2raw(uint8_t *raw, const ia *img, int width, int height, int depth)
    return size;
 }
 
+//---------------------------------------------------------
+// intermediate IA -> intermediate RGBA
+//---------------------------------------------------------
+
+rgba *ia2rgba(const ia *ia_img, int width, int height)
+{
+   rgba *rgba_img;
+   int img_size;
+
+   img_size = width * height * sizeof(*rgba_img);
+   rgba_img = malloc(img_size);
+   if (!rgba_img) {
+      ERROR("Error allocating %d bytes\n", img_size);
+      return NULL;
+   }
+
+   for (int i = 0; i < width * height; i++) {
+      rgba_img[i].red   = ia_img[i].intensity;
+      rgba_img[i].green = ia_img[i].intensity;
+      rgba_img[i].blue  = ia_img[i].intensity;
+      rgba_img[i].alpha = ia_img[i].alpha;
+   }
+
+   return rgba_img;
+}
 
 //---------------------------------------------------------
 // internal RGBA/IA -> PNG

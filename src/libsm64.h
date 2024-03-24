@@ -143,6 +143,8 @@ extern SM64_LIB_FN void sm64_register_play_sound_function( SM64PlaySoundFunction
 extern SM64_LIB_FN void sm64_global_init( const uint8_t *rom, uint8_t *outTexture );
 extern SM64_LIB_FN void sm64_global_terminate( void );
 
+extern SM64_LIB_FN void sm64_load_menu_texture_atlas( const uint8_t *rom, uint8_t *outTexture );
+
 extern SM64_LIB_FN void sm64_audio_init( const uint8_t *rom );
 extern SM64_LIB_FN uint32_t sm64_audio_tick( uint32_t numQueuedSamples, uint32_t numDesiredSamples, int16_t *audio_buffer );
 
