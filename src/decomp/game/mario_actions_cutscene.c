@@ -29,7 +29,7 @@
 //#include "object_list_processor.h"
 #include "save_file.h"
 #include "../include/seq_ids.h"
-//#include "sound_init.h"
+#include "sound_init.h"
 //#include "thread6.h"
 #include "../include/PR/os_cont.h"
 #include "../include/mario_animation_ids.h"
@@ -716,6 +716,7 @@ s32 common_death_handler(struct MarioState *m, s32 animation, s32 frameToDeathWa
         level_trigger_warp(m, WARP_OP_DEATH);
     }
     m->marioBodyState->eyeState = MARIO_EYES_DEAD;
+    stop_cap_music();
     stop_and_set_height_to_floor(m);
     return animFrame;
 }

@@ -18,6 +18,7 @@
 #include "../include/mario_animation_ids.h"
 #include "../include/object_fields.h"
 #include "../include/mario_geo_switch_case_ids.h"
+#include "sound_init.h"
 
 struct LandingAction {
     s16 numFrames;
@@ -1352,6 +1353,8 @@ s32 act_burning_ground(struct MarioState *m) {
     }
 
     m->marioBodyState->eyeState = MARIO_EYES_DEAD;
+    stop_cap_music();
+
 #ifdef VERSION_SH
     reset_rumble_timers();
 #endif

@@ -15,6 +15,7 @@
 #include "mario.h"
 #include "mario_step.h"
 #include "save_file.h"
+#include "sound_init.h"
 //#include "thread6.h"
 #include "../include/mario_animation_ids.h"
 #include "../include/object_fields.h"
@@ -1570,6 +1571,7 @@ s32 act_lava_boost(struct MarioState *m) {
     }
 
     m->marioBodyState->eyeState = MARIO_EYES_DEAD;
+    stop_cap_music();
 #ifdef VERSION_SH
     reset_rumble_timers();
 #endif
