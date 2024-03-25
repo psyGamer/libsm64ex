@@ -263,6 +263,7 @@ SM64_LIB_FN void sm64_mario_tick( int32_t marioId, const struct SM64MarioInputs 
     outState->flags = gMarioState->flags;
     outState->particleFlags = gMarioState->particleFlags;
     outState->invincTimer = gMarioState->invincTimer;
+    outState->bodyModelState = gMarioState->marioBodyState->modelState;
 }
 
 SM64_LIB_FN void sm64_mario_delete( int32_t marioId )
@@ -282,7 +283,7 @@ SM64_LIB_FN void sm64_mario_delete( int32_t marioId )
 
     free( gMarioObject );
     free_area( gCurrentArea );
-
+    
     global_state_delete( globalState );
     obj_pool_free_index( &s_mario_instance_pool, marioId );
 }
