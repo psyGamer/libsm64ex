@@ -61,6 +61,8 @@ struct SM64MarioState
     int16_t invincTimer;
 
     int16_t bodyModelState;
+    uint16_t actionState;
+    uint16_t actionTimer;
 };
 
 struct SM64MarioGeometryBuffers
