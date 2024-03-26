@@ -53,16 +53,20 @@ struct SM64MarioState
 {
     float position[3];
     float velocity[3];
-    float faceAngle;
+    float forwardVelocity;
+    float faceAngle[3];
     int16_t health;
     uint32_t action;
+    uint16_t actionState;
+    uint16_t actionTimer;
     uint32_t flags;
     uint32_t particleFlags;
     int16_t invincTimer;
-
+    int16_t animationID;
+    int16_t animationFrame;
+    int32_t waterLevel;
+    int32_t gasLevel;
     int16_t bodyModelState;
-    uint16_t actionState;
-    uint16_t actionTimer;
 };
 
 struct SM64MarioGeometryBuffers
