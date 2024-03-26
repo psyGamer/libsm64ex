@@ -128,6 +128,7 @@ struct SM64SurfaceCollisionData
     uint8_t isValid; // libsm64: added field
     struct SM64SurfaceObjectTransform *transform; // libsm64: added field
     uint16_t terrain; // libsm64: added field
+    uint32_t objId; // libsm64: added field; UINT32_MAX = static surfaces, else object surface id
 };
 
 enum

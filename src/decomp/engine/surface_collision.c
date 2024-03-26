@@ -255,6 +255,8 @@ static s32 find_wall_collisions_from_list( struct SM64WallCollisionData *data) {
         data->x += surf->normal.x * (radius - offset);
         data->z += surf->normal.z * (radius - offset);
 
+        surf->objId = i - 1;
+
         //! (Unreferenced Walls) Since this only returns the first four walls,
         //  this can lead to wall interaction being missed. Typically unreferenced walls
         //  come from only using one wall, however.
