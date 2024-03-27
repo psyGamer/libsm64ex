@@ -704,6 +704,11 @@ SM64_LIB_FN void sm64_stop_background_music(uint16_t seqId)
     stop_background_music(seqId);
 }
 
+SM64_LIB_FN void sm64_stop_all_background_music()
+{
+    stop_all_background_music();
+}
+
 SM64_LIB_FN void sm64_fadeout_background_music(uint16_t arg0, uint16_t fadeOut)
 {
     fadeout_background_music(arg0,fadeOut);

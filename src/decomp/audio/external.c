@@ -2393,6 +2393,12 @@ void stop_background_music(u16 seqId) {
     sBackgroundMusicQueue[i].priority = 0;
 }
 
+// libsm64: added
+void stop_all_background_music() {
+    sBackgroundMusicQueueSize = 0;
+    seq_player_fade_out(SEQ_PLAYER_LEVEL, 20);
+}
+
 /**
  * Called from threads: thread5_game_loop
  */

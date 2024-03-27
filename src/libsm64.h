@@ -200,6 +200,7 @@ extern SM64_LIB_FN float sm64_surface_find_poison_gas_level( float x, float z );
 extern SM64_LIB_FN void sm64_seq_player_play_sequence(uint8_t player, uint8_t seqId, uint16_t arg2);
 extern SM64_LIB_FN void sm64_play_music(uint8_t player, uint16_t seqArgs, uint16_t fadeTimer);
 extern SM64_LIB_FN void sm64_stop_background_music(uint16_t seqId);
+extern SM64_LIB_FN void sm64_stop_all_background_music();
 extern SM64_LIB_FN void sm64_fadeout_background_music(uint16_t arg0, uint16_t fadeOut);
 extern SM64_LIB_FN uint16_t sm64_get_current_background_music();
 extern SM64_LIB_FN void sm64_play_sound(int32_t soundBits, float *pos);

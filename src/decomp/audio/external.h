@@ -54,6 +54,7 @@ void set_sound_moving_speed(u8 bank, u8 speed);
 void play_dialog_sound(u8 dialogID);
 void play_music(u8 player, u16 seqArgs, u16 fadeTimer);
 void stop_background_music(u16 seqId);
+void stop_all_background_music();
 void fadeout_background_music(u16 arg0, u16 fadeOut);
 void drop_queued_background_music(void);
 u16 get_current_background_music(void);
