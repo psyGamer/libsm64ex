@@ -14,6 +14,7 @@
 #include "decomp/include/PR/os_cont.h"
 #include "decomp/engine/math_util.h"
 #include "decomp/include/sm64.h"
+#include "decomp/include/object_fields.h"
 #include "decomp/include/seq_ids.h"
 #include "decomp/shim.h"
 #include "decomp/memory.h"
@@ -619,6 +620,35 @@ SM64_LIB_FN bool sm64_mario_attack(int32_t marioId, float x, float y, float z, f
     global_state_bind( globalState );
 
     return fake_interact_bounce_top(gMarioState, x, y, z, hitboxHeight);
+}
+
+SM64_LIB_FN void sm64_mario_climb_pole(int32_t marioId, float poleX, float poleY, float poleZ, float poleHeight, float poleDownOffset)
+{
+    if( marioId >= s_mario_instance_pool.size || s_mario_instance_pool.objects[marioId] == NULL )
+    {
+        DEBUG_PRINT("Tried to use non-existant Mario with ID: %d", marioId);
+        return;
+    }
+
+    struct GlobalState *globalState = ((struct MarioInstance *)s_mario_instance_pool.objects[ marioId ])->globalState;
+    global_state_bind( globalState );
+
+    // Create / re-use a pole object
+    // Don't bother about freeing since it's not worth it
+    static struct Object *poleObj = NULL;
+    if (poleObj == NULL)
+        poleObj = create_object();
+
+    poleObj->oPosX = poleX;
+    poleObj->oPosY = poleY;
+    poleObj->oPosZ = poleZ;
+    poleObj->oMoveAnglePitch = 0;
+    poleObj->oMoveAngleYaw = 0;
+    poleObj->oMoveAngleRoll = 0;
+    poleObj->hitboxHeight = poleHeight;
+    poleObj->hitboxDownOffset = poleDownOffset;
+
+    fake_interact_pole(gMarioState, poleObj);
 }
 
 SM64_LIB_FN uint32_t sm64_surface_object_create( const struct SM64SurfaceObject *surfaceObject )

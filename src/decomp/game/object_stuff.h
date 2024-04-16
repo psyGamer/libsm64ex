@@ -2,6 +2,7 @@
 
 #include "../include/types.h"
 
+struct Object *create_object(void);
 struct Object *hack_allocate_mario(void);
 void bhv_mario_update(void);
 void create_transformation_from_matrices(Mat4 a0, Mat4 a1, Mat4 a2);

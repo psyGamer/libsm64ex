@@ -130,7 +130,7 @@ static struct Object *allocate_object(void) {
     return obj;
 }
 
-static struct Object *create_object(void) {
+struct Object *create_object(void) {
     struct Object *obj;
     obj = allocate_object();
     obj->curBhvCommand = NULL;
